@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{10320613-EC06-4EC9-A657-37DFCFD60A79}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RenomearArquivos.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RenomearArquivos">
+        <MSBuild Projects="RenomearArquivos.dproj"/>
+    </Target>
+    <Target Name="RenomearArquivos:Clean">
+        <MSBuild Projects="RenomearArquivos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RenomearArquivos:Make">
+        <MSBuild Projects="RenomearArquivos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RenomearArquivos"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RenomearArquivos:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RenomearArquivos:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
